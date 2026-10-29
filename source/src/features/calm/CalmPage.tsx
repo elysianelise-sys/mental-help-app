@@ -61,8 +61,10 @@ export default function CalmPage() {
                 <Icon name="therapist" size={16} />
               </span>
             )}
-            <span>with {audio.track.therapist}</span>
-            <Icon name="verified" size={16} />
+            <span className={styles.therapistWith}>
+              with {audio.track.therapist}
+              <Icon name="verified" size={16} />
+            </span>
             <span>{audio.track.therapistRole}</span>
           </div>
           {import.meta.env.DEV && !audio.track.src && (

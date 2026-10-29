@@ -186,6 +186,9 @@
   gap: 2px;
 }
 .therapistName {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   color: var(--ink-explore);
   font-size: 12px;
   font-weight: 700;
@@ -198,7 +201,7 @@
 }
 .verified {
   color: var(--brand-deep);
-  margin-left: -3px;
+  flex: none;
 }
 .moreButton {
   width: 44px;

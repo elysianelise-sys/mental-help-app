@@ -135,10 +135,12 @@ export default function ExplorePage() {
                     </span>
                   )}
                   <div className={styles.therapistText}>
-                    <span className={styles.therapistName}>{featured.therapist}</span>
+                    <span className={styles.therapistName}>
+                      {featured.therapist}
+                      <Icon name="verifiedBadge" size={16} className={styles.verified} />
+                    </span>
                     <span className={styles.therapistRole}>{featured.role}</span>
                   </div>
-                  <Icon name="verifiedBadge" size={18} className={styles.verified} />
                 </div>
                 <button
                   className={styles.moreButton}

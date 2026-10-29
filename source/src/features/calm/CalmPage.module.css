@@ -98,6 +98,11 @@
   border: 1px solid var(--border-soft);
   border-radius: 50%;
 }
+.therapistWith {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
 .therapist > span:last-child {
   color: var(--brand-deep);
 }
