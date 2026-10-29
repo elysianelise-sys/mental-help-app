@@ -111,13 +111,6 @@ export default function ExplorePage() {
               <Icon name="search" size={16} /> SEARCH
             </button>
           )}
-          <button
-            className={styles.gear}
-            aria-label="Preferences"
-            onClick={() => navigate('/profile')}
-          >
-            <Icon name="settings" size={20} />
-          </button>
         </div>
 
         <h2 className={styles.title}>Mental Help</h2>

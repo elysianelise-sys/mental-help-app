@@ -212,3 +212,7 @@ The project owner changed these decisions after testing the live app. **Where th
 - **Home cards:** can be dragged with a mouse, with two dots below to jump between them.
 - **Search field:** soft ring around the whole pill when focused, no square outline.
 - **Pages fill the 430px frame** on desktop with one continuous gradient behind the app.
+- **Settings and Profile are separate (replaces item 6):** Profile (`/profile`) shows Samantha's check-in numbers, this week's mood, recent check-ins, saved sessions and the booked plan. A gear icon in its header opens Settings (`/settings`), which holds Reduce motion, Rain sounds, Clear my check-ins and About. The Explore gear is removed. Settings' back arrow returns to Profile.
+- **About:** a short description of the app and a link to the presentation (https://mental-help-presentation-chi.vercel.app), opened in a new tab.
+- **Calendar (replaces the "coming soon" toast in item 13):** the Home calendar button opens `/calendar`, a month view of check-ins (Monday first). Tap a day to see its check-ins. Future months are not reachable.
+- **Greeting emoji removed:** the wave emoji beside the name is replaced by a small orb in the colour of the latest check-in. The two emoji on the Calm screen (breath cue and Rain Sounds) are now icons.

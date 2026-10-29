@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import type { MouseEvent } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import { LogoMark } from '../../mascot/Mascot';
 import samantha from '../../assets/photos/samantha.jpg';
 import { Icon } from '../ui/Icon';
@@ -9,12 +9,18 @@ export default function AppHeader({
   back = false,
   onBackClick,
   onProfileClick,
+  avatar = true,
+  action,
 }: {
   title: string;
   home?: boolean;
   back?: boolean;
   onBackClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   onProfileClick?: () => void;
+  /** Show the profile avatar on the right (default). Profile and Settings turn it off. */
+  avatar?: boolean;
+  /** Optional round action button shown on the right instead of the avatar. */
+  action?: ReactNode;
 }) {
   const navigate = useNavigate();
   const goBack = () => navigate('/home');
@@ -33,13 +39,16 @@ export default function AppHeader({
         <LogoMark />
       </span>
       <h1 className={title === 'Sessions' ? 'sessions-header-title' : undefined}>{title}</h1>
-      <button
-        className="header-avatar-button"
-        aria-label="Profile"
-        onClick={onProfileClick ?? (() => navigate('/profile'))}
-      >
-        <img src={samantha} alt="Samantha" />
-      </button>
+      {action}
+      {avatar && (
+        <button
+          className="header-avatar-button"
+          aria-label="Profile"
+          onClick={onProfileClick ?? (() => navigate('/profile'))}
+        >
+          <img src={samantha} alt="Samantha" />
+        </button>
+      )}
     </header>
   );
 }

@@ -73,3 +73,7 @@ The sheet already has a close (X). "Not now" is removed and Confirm is full widt
 - The theme pills row can be dragged with a mouse (`source/src/hooks/useDragScroll.ts`, also used by the Home cards).
 - Anxiety Relief and Self Compassion were empty. `content.json` now has 11 sessions across the four themes, and each has a matching entry in `tracks.json` (silent-timer mode, like the other placeholder tracks).
 - Search now looks across all themes instead of only the selected one.
+
+## 10. Settings, Profile, Calendar and emoji
+
+See "Updates after review" in `DECISIONS.md`. New code: `source/src/features/settings`, `profile` (rewritten), `calendar`, and an `avatar`/`action` option on `AppHeader`. Demo check-ins dated later in the current week are hidden on Profile and Calendar.

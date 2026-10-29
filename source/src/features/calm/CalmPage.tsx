@@ -47,7 +47,7 @@ export default function CalmPage() {
         </section>
 
         <div className={styles.breathCue} aria-live="polite">
-          <span aria-hidden="true">💨</span>
+          <Icon name="navCalm" size={16} />
           <span>{phaseCopy[phase]}</span>
         </div>
 
@@ -155,7 +155,7 @@ export default function CalmPage() {
             aria-pressed={audio.ambientOn}
             onClick={() => audio.setAmbient(!audio.ambientOn)}
           >
-            <span aria-hidden="true">💧</span>
+            <Icon name="stress" size={16} />
             <span>Rain Sounds</span>
             <span className={styles.toggleState}>{audio.ambientOn ? 'On' : 'Off'}</span>
             <i className={audio.ambientOn ? styles.rainActive : ''} />

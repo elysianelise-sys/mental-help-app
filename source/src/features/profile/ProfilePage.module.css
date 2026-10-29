@@ -17,177 +17,173 @@
 .identity {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 18px 20px;
+  gap: 16px;
+  padding: 20px;
 }
 .identity img {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 58px;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
   object-fit: cover;
-  border: 2px solid #fce7f3;
+  border: 3px solid #fce7f3;
   border-radius: 50%;
 }
 .identity h2 {
   margin: 0;
   color: var(--ink);
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   line-height: 28px;
 }
-.settingHeading {
+.identity p {
+  margin: 2px 0 0;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 18px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 14px 8px;
+  background: #fff;
+  border: 1px solid rgba(252, 231, 243, 0.8);
+  border-radius: 24px;
+  box-shadow: var(--shadow-card);
+}
+.stat strong {
+  color: var(--brand-deep);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 30px;
+}
+.stat span {
+  color: var(--text);
+  font-size: 12px;
+  line-height: 16px;
+}
+.sectionHeading {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
 }
-.settingIcon {
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
-  display: grid;
-  place-items: center;
-  color: var(--brand-deep);
-  background: var(--surface-blush);
-  border-radius: 14px;
-}
-.settingHeading h2,
-.about h2,
-.sectionTitle {
+.sectionHeading h2 {
   margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+}
+.sectionHeading button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0;
+  color: var(--brand-deep);
+  background: transparent;
+  border: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+.weekRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.weekRow p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.weekRow strong,
+.list strong,
+.plan strong {
   color: var(--ink);
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
 }
-.settingHeading p,
-.helper {
-  margin: 2px 0 0;
+.weekRow span,
+.list span,
+.plan span {
   color: var(--text);
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 18px;
 }
-.segmented {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 6px;
-  padding: 4px;
-  background: #fff7f8;
-  border: 1px solid #f6e5e9;
-  border-radius: 999px;
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.segmented button {
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.list li > div {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.list em {
+  margin-top: 2px;
+  color: var(--text);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rowButton {
+  width: 100%;
   min-height: 44px;
-  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0;
   color: var(--brand-deep);
   background: transparent;
   border: 0;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
+  text-align: left;
 }
-.segmented button.selected {
-  color: var(--brand-wine);
-  background: var(--primary);
-  font-weight: 700;
+.rowButton > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
-.twoOptions {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.plan {
+  display: flex;
+  flex-direction: column;
 }
-.sectionTitle {
-  margin-bottom: 5px;
+.empty {
+  margin: 0;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 20px;
 }
-.helper {
-  margin-bottom: 14px;
-}
-.clearButton {
-  min-height: 44px;
+.linkButton {
   width: 100%;
+  min-height: 44px;
+  margin-top: 14px;
   padding: 0 14px;
   color: var(--brand-deep);
   background: var(--surface-blush);
   border: 1px solid var(--border-soft);
   border-radius: 999px;
-  text-align: left;
   font-size: 12px;
   font-weight: 700;
-}
-.about p {
-  margin: 6px 0 0;
-  color: var(--text);
-  font-size: 12px;
-  line-height: 18px;
-}
-.sheetBackdrop {
-  position: fixed;
-  z-index: 50;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background: rgba(38, 24, 27, 0.34);
-}
-.sheet {
-  width: min(100%, 430px);
-  padding: 12px 20px calc(24px + env(safe-area-inset-bottom));
-  background: #fff;
-  border-radius: 28px 28px 0 0;
-  box-shadow: 0 -12px 40px rgba(38, 24, 27, 0.16);
-}
-.sheetHandle {
-  width: 38px;
-  height: 4px;
-  margin: 0 auto 20px;
-  background: #e8dadd;
-  border-radius: 999px;
-}
-.sheet h2 {
-  margin: 0 0 8px;
-  color: var(--ink);
-  font-size: 18px;
-  line-height: 26px;
-}
-.sheet p {
-  margin: 0 0 20px;
-  color: var(--text);
-  font-size: 13px;
-  line-height: 20px;
-}
-.keepButton,
-.confirmButton {
-  width: 100%;
-  min-height: 48px;
-  margin-top: 8px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-}
-.keepButton {
-  color: var(--brand-deep);
-  background: white;
-  border: 1px solid var(--border-soft);
-}
-.confirmButton {
-  color: var(--brand-wine);
-  background: var(--primary);
-  border: 0;
-}
-.visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-@media (max-width: 360px) {
-  .page {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  .card {
-    padding: 17px;
-  }
 }

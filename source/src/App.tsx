@@ -8,6 +8,8 @@ import CalmPage from './features/calm/CalmPage';
 import BuySessionsPage from './features/sessions/BuySessionsPage';
 import ExplorePage from './features/explore/ExplorePage';
 import ProfilePage from './features/profile/ProfilePage';
+import SettingsPage from './features/settings/SettingsPage';
+import CalendarPage from './features/calendar/CalendarPage';
 import { AudioProvider } from './providers/AudioProvider';
 import { CheckInProvider } from './providers/CheckInProvider';
 import { PreferencesProvider } from './providers/PreferencesProvider';
@@ -26,6 +28,8 @@ export default function App() {
                 <Route path="/sessions" element={<BuySessionsPage />} />
                 <Route path="/explore" element={<ExplorePage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/calendar" element={<CalendarPage />} />
                 <Route path="/check-in" element={<CheckInPage />} />
                 <Route path="*" element={<NotFound />} />
               </Route>

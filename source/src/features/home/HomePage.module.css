@@ -697,3 +697,10 @@
     transition: none;
   }
 }
+
+.greetingMark {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: 8px;
+  transform: translateY(-2px);
+}

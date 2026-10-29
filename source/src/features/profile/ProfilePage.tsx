@@ -1,184 +1,190 @@
-import { useEffect, useRef, useState } from 'react';
+import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppHeader from '../../components/layout/AppHeader';
 import { Icon } from '../../components/ui/Icon';
 import samantha from '../../assets/photos/samantha.jpg';
+import content from '../../data/mock/content.json';
+import { read } from '../../data/storage';
+import { getWeeklyMood } from '../../data/homeSelectors';
+import { EMOTIONS } from '../../mascot/emotions';
+import { Orb } from '../../mascot/Mascot';
 import { useCheckIns } from '../../providers/CheckInProvider';
-import { useReducedMotionPref } from '../../providers/PreferencesProvider';
+import { usePurchases } from '../../providers/PurchaseProvider';
+import user from '../../data/mock/user.json';
 import styles from './ProfilePage.module.css';
 
-type MotionMode = 'system' | 'on' | 'off';
+const SAVED_KEY = 'mh.saved.v1';
+const dayFormat = new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+const timeFormat = new Intl.DateTimeFormat('en-GB', { hour: 'numeric', minute: '2-digit' });
+const monthFormat = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' });
 
 export default function ProfilePage() {
-  // Not in Figma – approved addition
-  const { mode, setMode, ambientOn, setAmbientOn } = useReducedMotionPref();
-  const { clear } = useCheckIns();
-  const [confirming, setConfirming] = useState(false);
-  const [message, setMessage] = useState('');
-  const cancelRef = useRef<HTMLButtonElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  // Profile shows only what is stored on this device. Settings live on their own page.
+  const navigate = useNavigate();
+  const { history: allHistory } = useCheckIns();
+  // The demo data includes days later this week; only show check-ins that have already happened.
+  const history = allHistory.filter((entry) => new Date(entry.createdAt) <= new Date());
+  const { purchases } = usePurchases();
+  const weekly = getWeeklyMood(history);
+  const savedIds = useMemo(() => read<string[]>(SAVED_KEY, []), []);
+  const saved = content.filter((item) => savedIds.includes(item.id));
 
-  useEffect(() => {
-    if (!confirming) return;
-    cancelRef.current?.focus();
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setConfirming(false);
-        window.setTimeout(() => triggerRef.current?.focus(), 0);
-      }
-      if (event.key === 'Tab') {
-        event.preventDefault();
-        (document.activeElement === cancelRef.current
-          ? document.getElementById('confirm-clear')
-          : cancelRef.current
-        )?.focus();
-      }
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [confirming]);
-
-  const closeConfirmation = () => {
-    setConfirming(false);
-    window.setTimeout(() => triggerRef.current?.focus(), 0);
-  };
-  const clearCheckIns = () => {
-    try {
-      clear();
-      setMessage('Check-ins cleared.');
-      closeConfirmation();
-    } catch {
-      setMessage('Could not clear check-ins.');
-    }
-  };
-  const motionModes: MotionMode[] = ['system', 'on', 'off'];
+  const recent = [...history]
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    .slice(0, 3);
+  const first = history.length
+    ? new Date(Math.min(...history.map((entry) => new Date(entry.createdAt).getTime())))
+    : null;
+  const plan = purchases.length ? purchases[purchases.length - 1] : null;
+  const topEmotion = EMOTIONS.find((emotion) => emotion.label === weekly.topMood);
 
   return (
     <>
-      <AppHeader title="Profile" back />
+      <AppHeader
+        title="Profile"
+        back
+        avatar={false}
+        action={
+          <button
+            type="button"
+            className="header-action"
+            aria-label="Settings"
+            onClick={() => navigate('/settings')}
+          >
+            <Icon name="settings" size={22} />
+          </button>
+        }
+      />
       <main className={styles.page}>
         <section className={`${styles.card} ${styles.identity}`}>
-          <img src={samantha} alt="Samantha" />
+          <img src={samantha} alt="" />
           <div>
-            <h2>Samantha</h2>
+            <h2>{user.firstName}</h2>
+            <p>{first ? `Checking in since ${monthFormat.format(first)}` : 'Welcome to Mental Help'}</p>
+          </div>
+        </section>
+
+        <section className={styles.stats} aria-label="Your numbers">
+          <div className={styles.stat}>
+            <strong>{history.length}</strong>
+            <span>Check-ins</span>
+          </div>
+          <div className={styles.stat}>
+            <strong>{weekly.streak}</strong>
+            <span>Day streak</span>
+          </div>
+          <div className={styles.stat}>
+            <strong>{saved.length}</strong>
+            <span>Saved</span>
           </div>
         </section>
 
         <section className={styles.card}>
-          <div className={styles.settingHeading}>
-            <span className={styles.settingIcon}>
-              <Icon name="therapist" size={19} />
-            </span>
-            <div>
-              <h2>Reduce motion</h2>
-              <p>Overrides your device setting</p>
-            </div>
-          </div>
-          <div className={styles.segmented} role="group" aria-label="Reduce motion">
-            {motionModes.map((choice) => (
-              <button
-                key={choice}
-                type="button"
-                className={mode === choice ? styles.selected : ''}
-                aria-pressed={mode === choice}
-                onClick={() => setMode(choice)}
-              >
-                {choice === 'system' ? 'System' : choice === 'on' ? 'On' : 'Off'}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.card}>
-          <div className={styles.settingHeading}>
-            <span className={styles.settingIcon}>
-              <Icon name="moon" size={19} />
-            </span>
-            <div>
-              <h2>Rain sounds by default</h2>
-            </div>
-          </div>
-          <div
-            className={`${styles.segmented} ${styles.twoOptions}`}
-            role="group"
-            aria-label="Rain sounds by default"
-          >
-            <button
-              type="button"
-              className={ambientOn ? styles.selected : ''}
-              aria-pressed={ambientOn}
-              onClick={() => setAmbientOn(true)}
-            >
-              On
-            </button>
-            <button
-              type="button"
-              className={!ambientOn ? styles.selected : ''}
-              aria-pressed={!ambientOn}
-              onClick={() => setAmbientOn(false)}
-            >
-              Off
+          <div className={styles.sectionHeading}>
+            <h2>This week</h2>
+            <button type="button" onClick={() => navigate('/calendar')}>
+              Calendar
+              <Icon name="chevronRight" size={14} />
             </button>
           </div>
+          {topEmotion ? (
+            <div className={styles.weekRow}>
+              <Orb emotion={topEmotion.key} size={44} />
+              <p>
+                <strong>Mostly {topEmotion.label.toLowerCase()}</strong>
+                <span>
+                  {weekly.checkInDays} of {weekly.elapsedDays}{' '}
+                  {weekly.elapsedDays === 1 ? 'day' : 'days'} checked in
+                </span>
+              </p>
+            </div>
+          ) : (
+            <p className={styles.empty}>No check-ins this week yet.</p>
+          )}
         </section>
 
         <section className={styles.card}>
-          <h2 className={styles.sectionTitle}>Check-ins</h2>
-          <p className={styles.helper}>Remove saved check-ins from this device.</p>
-          <button
-            ref={triggerRef}
-            className={styles.clearButton}
-            type="button"
-            onClick={() => setConfirming(true)}
-          >
-            Clear my check-ins
+          <div className={styles.sectionHeading}>
+            <h2>Recent check-ins</h2>
+          </div>
+          {recent.length ? (
+            <ul className={styles.list}>
+              {recent.map((entry) => {
+                const emotion = EMOTIONS.find((item) => item.key === entry.emotion);
+                const date = new Date(entry.createdAt);
+                return (
+                  <li key={entry.id}>
+                    <Orb emotion={entry.emotion} size={34} />
+                    <div>
+                      <strong>{emotion?.label}</strong>
+                      <span>
+                        {dayFormat.format(date)} · {timeFormat.format(date)}
+                      </span>
+                      {entry.note && <em>{entry.note}</em>}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p className={styles.empty}>Nothing here yet.</p>
+          )}
+          <button type="button" className={styles.linkButton} onClick={() => navigate('/check-in')}>
+            Check in now
           </button>
         </section>
 
-        <section className={`${styles.card} ${styles.about}`}>
-          <h2>About</h2>
-          <p>Mental Help · UI/UX assignment</p>
+        <section className={styles.card}>
+          <div className={styles.sectionHeading}>
+            <h2>Saved sessions</h2>
+          </div>
+          {saved.length ? (
+            <ul className={styles.list}>
+              {saved.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className={styles.rowButton}
+                    onClick={() => navigate(`/calm?track=${item.id}`)}
+                  >
+                    <div>
+                      <strong>{item.title}</strong>
+                      <span>
+                        {item.therapist} · {item.duration}
+                      </span>
+                    </div>
+                    <Icon name="arrowRight" size={18} />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className={styles.empty}>Tap the star on a session in Explore to keep it here.</p>
+          )}
+          <button type="button" className={styles.linkButton} onClick={() => navigate('/explore')}>
+            Browse Explore
+          </button>
         </section>
-        <span className={styles.visuallyHidden} aria-live="polite">
-          {message}
-        </span>
-      </main>
 
-      {confirming && (
-        <div
-          className={styles.sheetBackdrop}
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) closeConfirmation();
-          }}
-        >
-          <section
-            className={styles.sheet}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="clear-title"
-            aria-describedby="clear-copy"
-          >
-            <div className={styles.sheetHandle} />
-            <h2 id="clear-title">Clear my check-ins?</h2>
-            <p id="clear-copy">This will remove all saved check-ins from this device.</p>
-            <button
-              ref={cancelRef}
-              className={styles.keepButton}
-              type="button"
-              onClick={closeConfirmation}
-            >
-              Keep my check-ins
-            </button>
-            <button
-              id="confirm-clear"
-              className={styles.confirmButton}
-              type="button"
-              onClick={clearCheckIns}
-            >
-              Clear my check-ins
-            </button>
-          </section>
-        </div>
-      )}
+        <section className={styles.card}>
+          <div className={styles.sectionHeading}>
+            <h2>Your plan</h2>
+          </div>
+          {plan ? (
+            <div className={styles.plan}>
+              <strong>{plan.days}-day plan</strong>
+              <span>
+                ${plan.price} · booked {dayFormat.format(new Date(plan.purchasedAt))}
+              </span>
+            </div>
+          ) : (
+            <p className={styles.empty}>No plan booked yet.</p>
+          )}
+          <button type="button" className={styles.linkButton} onClick={() => navigate('/sessions')}>
+            {plan ? 'Book another plan' : 'See session plans'}
+          </button>
+        </section>
+      </main>
     </>
   );
 }
