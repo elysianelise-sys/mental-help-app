@@ -6,8 +6,10 @@
     "therapist": "Gregory Dickinson",
     "role": "Therapist",
     "theme": "Calm Mind",
-    "themes": ["Calm Mind"],
-    "duration": "23 Minutes",
+    "themes": [
+      "Calm Mind"
+    ],
+    "duration": "5 Minutes",
     "users": "1.2K Users"
   },
   {
@@ -17,8 +19,11 @@
     "therapist": "Dr. Maya",
     "role": "Therapist",
     "theme": "Sleep Rituals",
-    "themes": ["Sleep Rituals", "Calm Mind"],
-    "duration": "10 Minutes",
+    "themes": [
+      "Sleep Rituals",
+      "Calm Mind"
+    ],
+    "duration": "5 Minutes",
     "users": ""
   },
   {
@@ -28,7 +33,9 @@
     "therapist": "Dr. Maya",
     "role": "Therapist",
     "theme": "Calm Mind",
-    "themes": ["Calm Mind"],
+    "themes": [
+      "Calm Mind"
+    ],
     "duration": "5 Minutes",
     "users": ""
   },
@@ -39,8 +46,10 @@
     "therapist": "Gregory Dickinson",
     "role": "Therapist",
     "theme": "Sleep Rituals",
-    "themes": ["Sleep Rituals"],
-    "duration": "15 Minutes",
+    "themes": [
+      "Sleep Rituals"
+    ],
+    "duration": "5 Minutes",
     "users": "860 Users"
   },
   {
@@ -50,8 +59,10 @@
     "therapist": "Dr. Maya",
     "role": "Therapist",
     "theme": "Sleep Rituals",
-    "themes": ["Sleep Rituals"],
-    "duration": "12 Minutes",
+    "themes": [
+      "Sleep Rituals"
+    ],
+    "duration": "5 Minutes",
     "users": ""
   },
   {
@@ -61,8 +72,10 @@
     "therapist": "Dr. Maya",
     "role": "Therapist",
     "theme": "Anxiety Relief",
-    "themes": ["Anxiety Relief"],
-    "duration": "18 Minutes",
+    "themes": [
+      "Anxiety Relief"
+    ],
+    "duration": "5 Minutes",
     "users": "940 Users"
   },
   {
@@ -72,8 +85,11 @@
     "therapist": "Dr. Maya",
     "role": "Therapist",
     "theme": "Anxiety Relief",
-    "themes": ["Anxiety Relief", "Calm Mind"],
-    "duration": "8 Minutes",
+    "themes": [
+      "Anxiety Relief",
+      "Calm Mind"
+    ],
+    "duration": "5 Minutes",
     "users": ""
   },
   {
@@ -83,8 +99,10 @@
     "therapist": "Dr. Maya",
     "role": "Therapist",
     "theme": "Anxiety Relief",
-    "themes": ["Anxiety Relief"],
-    "duration": "7 Minutes",
+    "themes": [
+      "Anxiety Relief"
+    ],
+    "duration": "5 Minutes",
     "users": ""
   },
   {
@@ -94,8 +112,10 @@
     "therapist": "Gregory Dickinson",
     "role": "Therapist",
     "theme": "Self Compassion",
-    "themes": ["Self Compassion"],
-    "duration": "15 Minutes",
+    "themes": [
+      "Self Compassion"
+    ],
+    "duration": "5 Minutes",
     "users": "710 Users"
   },
   {
@@ -105,8 +125,11 @@
     "therapist": "Dr. Maya",
     "role": "Therapist",
     "theme": "Self Compassion",
-    "themes": ["Self Compassion", "Sleep Rituals"],
-    "duration": "10 Minutes",
+    "themes": [
+      "Self Compassion",
+      "Sleep Rituals"
+    ],
+    "duration": "5 Minutes",
     "users": ""
   },
   {
@@ -116,8 +139,10 @@
     "therapist": "Gregory Dickinson",
     "role": "Therapist",
     "theme": "Self Compassion",
-    "themes": ["Self Compassion"],
-    "duration": "12 Minutes",
+    "themes": [
+      "Self Compassion"
+    ],
+    "duration": "5 Minutes",
     "users": ""
   }
 ]

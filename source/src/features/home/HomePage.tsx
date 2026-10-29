@@ -33,9 +33,6 @@ export default function HomePage() {
   const closeButton = useRef<HTMLButtonElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
   const weekly = getWeeklyMood(history);
-  const latestEmotion = history.reduce((latest, entry) =>
-    new Date(entry.createdAt) > new Date(latest.createdAt) ? entry : latest,
-  history[0])?.emotion ?? 'calm';
 
   useEffect(() => {
     if (sheetOpen) {
@@ -82,9 +79,6 @@ export default function HomePage() {
             <p>Hello,</p>
             <h2>
               {user.firstName}
-              <span className={styles.greetingMark}>
-                <Orb emotion={history.length ? latestEmotion : 'calm'} size={22} />
-              </span>
             </h2>
           </div>
           <div className={styles.quickActions}>
