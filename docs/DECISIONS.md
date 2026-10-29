@@ -216,3 +216,4 @@ The project owner changed these decisions after testing the live app. **Where th
 - **About:** a short description of the app and a link to the presentation (https://mental-help-presentation-chi.vercel.app), opened in a new tab.
 - **Calendar (replaces the "coming soon" toast in item 13):** the Home calendar button opens `/calendar`, a month view of check-ins (Monday first). Tap a day to see its check-ins. Future months are not reachable.
 - **Greeting emoji removed:** the wave emoji beside the name is replaced by a small orb in the colour of the latest check-in. The two emoji on the Calm screen (breath cue and Rain Sounds) are now icons.
+- **Photos:** Samantha's, Gregory Dickinson's and Dr. Maya's portraits were supplied by the project owner (29 October 2026). Therapist photos are looked up by name in `source/src/data/therapists.ts`; a therapist without a photo shows initials.
