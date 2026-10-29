@@ -10,3 +10,25 @@
 /* 3. Gradient: the flat pink placeholder circle only shows before an emotion is picked */
 ._detailOrbSlot_1h45t_99:has(.orb){background:transparent}
 ._detailOrbSlot_1h45t_99:not(:has(.orb)){background:radial-gradient(circle at 34% 28%,#fff 0%,#fbe2ec 48%,#f3c3d6 100%);box-shadow:inset -6px -8px 16px #8f485b1f}
+
+/* --- 29 Oct 2026 UI fixes (see docs/FIXES.md #4-#10) --- */
+/* 4. one continuous gradient: pages fill the whole app frame, frame background is a single fixed gradient */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--bg-gradient)}
+.app-frame{background:transparent}
+._home_1ljr9_1,._page_m2gu8_1,._page_1bndp_1,._page_1jzsb_1,._page_fe0yx_1{max-width:none}
+/* 5. Home cards: drag with a mouse, dots to jump, no hard clip */
+._featured_1ljr9_59{cursor:grab;overscroll-behavior-x:contain;-webkit-user-select:none;user-select:none}
+.carousel-dots{display:flex;justify-content:center;gap:6px;margin:6px 0 2px}
+.carousel-dots button{width:8px;height:8px;min-height:0;padding:0;border:0;border-radius:99px;background:#8f485b33;cursor:pointer;transition:width .2s,background .2s;position:relative}
+.carousel-dots button:before{content:"";position:absolute;inset:-18px -6px}
+._featured_1ljr9_59:not([data-page="1"])+.carousel-dots button:nth-child(1),._featured_1ljr9_59[data-page="1"]+.carousel-dots button:nth-child(2){width:22px;background:var(--brand-deep)}
+@media (prefers-reduced-motion:reduce){.carousel-dots button{transition:none}}
+/* 6. Sessions: title row without the extra BACK pill; sheet has one close control */
+._pageTitleRow_1bndp_8 h2{text-align:left}
+._sheetActions_1bndp_564{display:block}
+._sheetActions_1bndp_564 ._confirmButton_1bndp_569{width:100%}
+/* 7. Explore: View all shows every theme */
+._themePills_1jzsb_307.themes-expanded{flex-wrap:wrap;overflow:visible}
+/* 8. Explore search: soft pill ring instead of a square outline */
+._searchExpanded_1jzsb_47 input:focus-visible,._searchExpanded_1jzsb_47 input:focus{outline:0;box-shadow:none}
+._searchExpanded_1jzsb_47:focus-within{border-color:var(--brand-deep);box-shadow:0 0 0 3px #8f485b2e}

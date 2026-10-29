@@ -1,6 +1,6 @@
 # Fixes applied after launch (29 October 2026)
 
-These were applied directly to the production build (`assets/index-mhfix1.js` and `assets/index-mhfix1.css`) because the source was not available at the time. If the React source is added to this repo, apply the same three changes there, or the next build will undo them.
+These were applied directly to the production build (`assets/index-mhfix1.js` and `assets/index-mhfix1.css`) because the source was not available at the time. If the React source is added to this repo, apply the same changes there (#1 to #8), or the next build will undo them.
 
 ## 1. Close (X) icons rendered as solid squares
 
@@ -42,3 +42,28 @@ WebkitMask: `url("${src}") center / contain no-repeat`,
   box-shadow: inset -6px -8px 16px #8f485b1f;
 }
 ```
+
+## 4. Gradient seams on desktop
+
+**Cause:** page containers (Home, Explore, Sessions, Calm, Profile) were capped at `max-width: 393px` inside the 430px app frame, so Explore's own gradient stopped about 18px short of each side and showed a seam. The frame also had its own gradient that did not line up with the page.
+
+**Fix:** remove the 393px cap on those five containers; draw one fixed gradient behind the whole app (`body::before`) and make `.app-frame` transparent.
+
+## 5. Home cards: no way to reach the second card with a mouse, and a hard clip at the edge
+
+**Cause:** the Featured row is a horizontal scroller. A mouse has no sideways scroll, and the row bled to the 393px container, not to the frame edge.
+
+**Fix:** the cap removal (#4) lets the row bleed to the frame edge. The row can now be dragged with a mouse, and two dots below it jump between cards (`mhCar` helper plus `.carousel-dots` in the Home component).
+
+## 6. Sessions: duplicate Back button
+
+The page had a header back arrow and a second "BACK" pill. The pill is removed (header arrow stays) and the "Buy Sessions" title is left-aligned.
+
+## 7. Confirm sheet: duplicate "Not now" button
+
+The sheet already has a close (X). "Not now" is removed and Confirm is full width.
+
+## 8. Explore: "View all" did nothing, and search focus drew a square outline
+
+- "View all" now toggles to "Show less" and wraps all four theme pills so none is cut off (`xa` state, `.themes-expanded`).
+- The search input's square focus outline is replaced with a soft ring around the whole pill (`:focus-within`).
