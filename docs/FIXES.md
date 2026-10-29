@@ -1,6 +1,6 @@
 # Fixes applied after launch (29 October 2026)
 
-These were applied directly to the production build (`assets/index-mhfix1.js` and `assets/index-mhfix1.css`) because the source was not available at the time. If the React source is added to this repo, apply the same changes there (#1 to #8), or the next build will undo them.
+These were first applied directly to the production build because the source was not available. **They are now all in the source (`source/`) and the root build is generated from it**, so a rebuild keeps them. Items 1 to 3 are the first round; items 4 onward are the 29 October desktop review (see also the "Updates after review" section in `DECISIONS.md`).
 
 ## 1. Close (X) icons rendered as solid squares
 
@@ -67,3 +67,9 @@ The sheet already has a close (X). "Not now" is removed and Confirm is full widt
 
 - "View all" now toggles to "Show less" and wraps all four theme pills so none is cut off (`xa` state, `.themes-expanded`).
 - The search input's square focus outline is replaced with a soft ring around the whole pill (`:focus-within`).
+
+## 9. Explore: theme pills can be dragged, and every theme has content
+
+- The theme pills row can be dragged with a mouse (`source/src/hooks/useDragScroll.ts`, also used by the Home cards).
+- Anxiety Relief and Self Compassion were empty. `content.json` now has 11 sessions across the four themes, and each has a matching entry in `tracks.json` (silent-timer mode, like the other placeholder tracks).
+- Search now looks across all themes instead of only the selected one.

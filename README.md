@@ -10,20 +10,30 @@ UI/UX project by Elise.
 
 ## What is in this repo
 
-This repo holds the **production build** of the app, exactly as it is live on Vercel (including the 29 October 2026 fixes in `docs/FIXES.md`). It is a static site: no install or build step is needed.
+The repo root is the **production build** (what Vercel serves, with no install or build step). The full **React source** is in `source/`.
 
 ```
-index.html            entry page (single-page app)
+index.html            entry page (single-page app), generated from source/
 favicon.svg
-assets/               compiled JS + CSS (index-mhfix1.*), icons (SVG), photos (JPG)
+assets/               compiled JS + CSS (hashed names), icons (SVG), photos (JPG)
 audio/                calm track (MP3) and rain loop (WAV)
 vercel.json           static deploy settings + SPA rewrite (every route -> index.html)
+source/               the Vite + React + TypeScript project (src/, package.json, public/, scripts/)
 docs/CODEX_HANDOFF.md the full build spec the app was built from
-docs/DECISIONS.md     the project owner's answers to the spec's open questions
-docs/FIXES.md         fixes applied after launch, and how to carry them into the source
+docs/DECISIONS.md     the owner's decisions, including the 29 October updates
+docs/FIXES.md         fixes applied after launch (all are in source/)
 ```
 
-The original React source (Vite + TypeScript + React Router + Motion + CSS Modules) was written by Codex and lives in the Codex workspace. It is **not** in this repo. If you add it later, put it in `src/` with its `package.json`, then change `vercel.json` to build with Vite (`"framework": "vite"`, remove the custom install/build/output lines) and apply the three fixes in `docs/FIXES.md` to the source.
+### Changing the app
+
+```
+cd source
+pnpm install
+pnpm dev          # local preview
+pnpm build        # writes source/dist
+```
+
+Then copy the contents of `source/dist/` over the repo root (replace `index.html`, `assets/`, `audio/`, `favicon.svg`), delete any old `assets/index-*` files that are no longer referenced, commit and push.
 
 ## Screens
 

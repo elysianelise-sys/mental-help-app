@@ -1,0 +1,8 @@
+[
+  { "days": 3, "original": 60, "price": 45 },
+  { "days": 4, "original": 80, "price": 59 },
+  { "days": 5, "original": 100, "price": 72 },
+  { "days": 6, "original": 120, "price": 85 },
+  { "days": 7, "original": 140, "price": 98 },
+  { "days": 8, "original": 160, "price": 110 }
+]

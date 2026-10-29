@@ -198,3 +198,17 @@ Replace the cool greys on the Calm and Sessions screens:
 - **Retired:** the cloud PNGs, the four check-in avatar PNGs, the Gentle reminder raster and both old logo PNGs.
 - **Existing assets still used:** the Samantha and Gregory Dickinson photos, the UI icons, the Explore grain texture and the Sessions sparkles. Export these from Figma and commit them. Do not hot-link Figma URLs.
 - **Always on:** reduced motion, accessibility (spec Section 15) and the "What Codex should not do" list (spec Section 25).
+
+---
+
+## Updates after review (29 October 2026)
+
+The project owner changed these decisions after testing the live app. **Where this section and the numbered items above differ, this section wins.**
+
+- **Explore content (replaces item 14, "only two items"):** every theme now has 2 to 3 sessions, using only the two existing therapists (Gregory Dickinson and Dr. Maya). The first session for a theme is the big card, the rest are listed below it. Search looks across all themes.
+- **View all (replaces item 14):** toggles to "Show less" and shows all four themes wrapped, instead of a "coming soon" toast.
+- **Buy Sessions back (replaces item 20 for this screen):** only the header back arrow. The in-page "BACK" pill is removed.
+- **Confirm your plan sheet (replaces item 8):** one close (X) and a full-width "Confirm". The "Not now" button is removed.
+- **Home cards:** can be dragged with a mouse, with two dots below to jump between them.
+- **Search field:** soft ring around the whole pill when focused, no square outline.
+- **Pages fill the 430px frame** on desktop with one continuous gradient behind the app.

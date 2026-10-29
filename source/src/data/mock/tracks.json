@@ -1,0 +1,132 @@
+[
+  {
+    "id": "unwind-your-thoughts",
+    "title": "Unwind Your Thoughts",
+    "therapist": "Gregory Dickinson",
+    "therapistRole": "Licensed Therapist",
+    "durationSec": 600,
+    "src": "/audio/tracks/unwind-your-thoughts.mp3",
+    "ambientDefault": "rain",
+    "ambientSrc": "/audio/ambient/rain-loop.wav"
+  },
+  {
+    "id": "overthinking-at-night",
+    "title": "How do I stop overthinking at night?",
+    "therapist": "Gregory Dickinson",
+    "therapistRole": "Therapist",
+    "durationSec": 1380,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "evening-grounding",
+    "title": "Evening Grounding",
+    "therapist": "Dr. Maya",
+    "therapistRole": "Therapist",
+    "durationSec": 600,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "five-minute-reset",
+    "title": "A five-minute reset",
+    "therapist": "Dr. Maya",
+    "therapistRole": "Therapist",
+    "durationSec": 300,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "softer-bedtime",
+    "title": "A softer bedtime routine",
+    "therapist": "Gregory Dickinson",
+    "therapistRole": "Therapist",
+    "durationSec": 900,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "quiet-the-body",
+    "title": "Quiet the body before sleep",
+    "therapist": "Dr. Maya",
+    "therapistRole": "Therapist",
+    "durationSec": 720,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "when-thoughts-race",
+    "title": "When your thoughts race",
+    "therapist": "Gregory Dickinson",
+    "therapistRole": "Therapist",
+    "durationSec": 1080,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "tight-chest",
+    "title": "Breathing through a tight chest",
+    "therapist": "Dr. Maya",
+    "therapistRole": "Therapist",
+    "durationSec": 480,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "five-senses",
+    "title": "Grounding with your five senses",
+    "therapist": "Dr. Maya",
+    "therapistRole": "Therapist",
+    "durationSec": 420,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "talk-to-yourself-kindly",
+    "title": "Talking to yourself kindly",
+    "therapist": "Gregory Dickinson",
+    "therapistRole": "Therapist",
+    "durationSec": 900,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "let-go-of-a-hard-day",
+    "title": "Letting go of a hard day",
+    "therapist": "Dr. Maya",
+    "therapistRole": "Therapist",
+    "durationSec": 600,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  },
+  {
+    "id": "not-behind",
+    "title": "You are not behind",
+    "therapist": "Gregory Dickinson",
+    "therapistRole": "Therapist",
+    "durationSec": 720,
+    "durationIsPlaceholder": true,
+    "src": null,
+    "ambientDefault": null,
+    "ambientSrc": null
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What does “Days” mean?",
+    "answer": "Days means the package length (the number of sessions in the package)."
+  },
+  {
+    "question": "Is this a real payment?",
+    "answer": "Mock flow only. There is no real payment and no payment SDK."
+  },
+  {
+    "question": "Which plan is Optimal Pace?",
+    "answer": "Optimal Pace is 4 days."
+  }
+]

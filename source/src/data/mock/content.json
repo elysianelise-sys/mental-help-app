@@ -1,0 +1,123 @@
+[
+  {
+    "id": "overthinking-at-night",
+    "title": "How do I stop overthinking at night?",
+    "description": "Gently unpack cognitive rumination through guided evening thought anchors.",
+    "therapist": "Gregory Dickinson",
+    "role": "Therapist",
+    "theme": "Calm Mind",
+    "themes": ["Calm Mind"],
+    "duration": "23 Minutes",
+    "users": "1.2K Users"
+  },
+  {
+    "id": "evening-grounding",
+    "title": "Evening Grounding",
+    "description": "3-step wind down with Dr. Maya",
+    "therapist": "Dr. Maya",
+    "role": "Therapist",
+    "theme": "Sleep Rituals",
+    "themes": ["Sleep Rituals", "Calm Mind"],
+    "duration": "10 Minutes",
+    "users": ""
+  },
+  {
+    "id": "five-minute-reset",
+    "title": "A five-minute reset",
+    "description": "Slow your breathing and let the day settle before your next task.",
+    "therapist": "Dr. Maya",
+    "role": "Therapist",
+    "theme": "Calm Mind",
+    "themes": ["Calm Mind"],
+    "duration": "5 Minutes",
+    "users": ""
+  },
+  {
+    "id": "softer-bedtime",
+    "title": "A softer bedtime routine",
+    "description": "Build a gentle wind-down you can repeat every night.",
+    "therapist": "Gregory Dickinson",
+    "role": "Therapist",
+    "theme": "Sleep Rituals",
+    "themes": ["Sleep Rituals"],
+    "duration": "15 Minutes",
+    "users": "860 Users"
+  },
+  {
+    "id": "quiet-the-body",
+    "title": "Quiet the body before sleep",
+    "description": "A slow body scan to release the tension you carried today.",
+    "therapist": "Dr. Maya",
+    "role": "Therapist",
+    "theme": "Sleep Rituals",
+    "themes": ["Sleep Rituals"],
+    "duration": "12 Minutes",
+    "users": ""
+  },
+  {
+    "id": "when-thoughts-race",
+    "title": "When your thoughts race",
+    "description": "Notice the spiral, name it, and take one small step back.",
+    "therapist": "Gregory Dickinson",
+    "role": "Therapist",
+    "theme": "Anxiety Relief",
+    "themes": ["Anxiety Relief"],
+    "duration": "18 Minutes",
+    "users": "940 Users"
+  },
+  {
+    "id": "tight-chest",
+    "title": "Breathing through a tight chest",
+    "description": "A short guided breath for the moments anxiety shows up in your body.",
+    "therapist": "Dr. Maya",
+    "role": "Therapist",
+    "theme": "Anxiety Relief",
+    "themes": ["Anxiety Relief", "Calm Mind"],
+    "duration": "8 Minutes",
+    "users": ""
+  },
+  {
+    "id": "five-senses",
+    "title": "Grounding with your five senses",
+    "description": "Come back to the room you are in, one sense at a time.",
+    "therapist": "Dr. Maya",
+    "role": "Therapist",
+    "theme": "Anxiety Relief",
+    "themes": ["Anxiety Relief"],
+    "duration": "7 Minutes",
+    "users": ""
+  },
+  {
+    "id": "talk-to-yourself-kindly",
+    "title": "Talking to yourself kindly",
+    "description": "Swap the harsh inner voice for one you would use with a friend.",
+    "therapist": "Gregory Dickinson",
+    "role": "Therapist",
+    "theme": "Self Compassion",
+    "themes": ["Self Compassion"],
+    "duration": "15 Minutes",
+    "users": "710 Users"
+  },
+  {
+    "id": "let-go-of-a-hard-day",
+    "title": "Letting go of a hard day",
+    "description": "Acknowledge what was difficult, then set it down for tonight.",
+    "therapist": "Dr. Maya",
+    "role": "Therapist",
+    "theme": "Self Compassion",
+    "themes": ["Self Compassion", "Sleep Rituals"],
+    "duration": "10 Minutes",
+    "users": ""
+  },
+  {
+    "id": "not-behind",
+    "title": "You are not behind",
+    "description": "A gentle reminder that your pace is allowed to be your own.",
+    "therapist": "Gregory Dickinson",
+    "role": "Therapist",
+    "theme": "Self Compassion",
+    "themes": ["Self Compassion"],
+    "duration": "12 Minutes",
+    "users": ""
+  }
+]
