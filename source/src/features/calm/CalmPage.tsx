@@ -4,7 +4,7 @@ import { Icon } from '../../components/ui/Icon';
 import { BreathWave, BreathingOrb } from '../../mascot/Mascot';
 import { useBreathPhase } from '../../mascot/useBreathPhase';
 import { useAudio } from '../../providers/AudioProvider';
-import gregory from '../../assets/photos/gregory.jpg';
+import { THERAPIST_PHOTO } from '../../data/therapists';
 import styles from './CalmPage.module.css';
 
 const phaseCopy = {
@@ -54,8 +54,8 @@ export default function CalmPage() {
         <section className={styles.trackInfo}>
           <h2>{audio.track.title}</h2>
           <div className={styles.therapist}>
-            {audio.track.therapist === 'Gregory Dickinson' ? (
-              <img src={gregory} alt="Gregory Dickinson" />
+            {THERAPIST_PHOTO[audio.track.therapist] ? (
+              <img src={THERAPIST_PHOTO[audio.track.therapist]} alt={audio.track.therapist} />
             ) : (
               <span className={styles.therapistAvatar} aria-hidden="true">
                 <Icon name="therapist" size={16} />

@@ -6,7 +6,7 @@ import type { IconName } from '../../components/ui/Icon';
 import { useDragScroll } from '../../hooks/useDragScroll';
 import { read, write } from '../../data/storage';
 import content from '../../data/mock/content.json';
-import gregory from '../../assets/photos/gregory.jpg';
+import { THERAPIST_PHOTO } from '../../data/therapists';
 import styles from './ExplorePage.module.css';
 
 type ExploreItem = (typeof content)[number] & { themes: string[] };
@@ -123,8 +123,12 @@ export default function ExplorePage() {
             <article className={styles.featuredCard}>
               <div className={styles.featuredTop}>
                 <div className={styles.therapistLine}>
-                  {featured.therapist === 'Gregory Dickinson' ? (
-                    <img className={styles.portrait} src={gregory} alt="Gregory Dickinson" />
+                  {THERAPIST_PHOTO[featured.therapist] ? (
+                    <img
+                      className={styles.portrait}
+                      src={THERAPIST_PHOTO[featured.therapist]}
+                      alt={featured.therapist}
+                    />
                   ) : (
                     <span className={styles.portraitInitials} aria-hidden="true">
                       {initials(featured.therapist)}
